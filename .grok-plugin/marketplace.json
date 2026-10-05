@@ -1,0 +1,30 @@
+{
+  "name": "mrscraper-grok",
+  "description": "Fetch and preserve page content, extract structured web data, discover sources, and work with saved MrScraper runs from Grok Build.",
+  "owner": {
+    "name": "MrScraper",
+    "email": "support@mrscraper.com"
+  },
+  "plugins": [
+    {
+      "name": "mrscraper",
+      "source": "./plugins/mrscraper",
+      "description": "Connect Grok Build to MrScraper for raw page fetching, managed extraction, Google discovery, and saved scraper workflows.",
+      "category": "development",
+      "author": {
+        "name": "MrScraper"
+      },
+      "homepage": "https://docs.mrscraper.com/docs/getting-started/mcp-server",
+      "keywords": [
+        "mrscraper",
+        "mr scraper",
+        "mrscraper mcp"
+      ],
+      "domains": [
+        "mrscraper.com",
+        "app.mrscraper.com",
+        "docs.mrscraper.com"
+      ]
+    }
+  ]
+}

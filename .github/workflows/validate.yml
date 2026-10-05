@@ -1,0 +1,67 @@
+name: Validate Grok Build plugin
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      GROK_VERSION: 1.0.46
+      GROK_SHA256: 0cc2a4aa40c2bf2a7a2c7933a738ea09b7c9fdafd200b53705e1d411617cd70f
+      GROK_DISABLE_AUTOUPDATER: "1"
+      GROK_TELEMETRY_ENABLED: "false"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Install Grok Build CLI
+        run: |
+          curl -fsSL -o "$RUNNER_TEMP/grok.gz" "https://x.ai/cli/grok-${GROK_VERSION}-linux-x86_64.gz"
+          echo "${GROK_SHA256}  $RUNNER_TEMP/grok.gz" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/bin"
+          gzip -dc "$RUNNER_TEMP/grok.gz" > "$RUNNER_TEMP/bin/grok"
+          chmod +x "$RUNNER_TEMP/bin/grok"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+          echo "GROK_HOME=$RUNNER_TEMP/grok-home" >> "$GITHUB_ENV"
+
+      - name: Validate plugin manifest
+        run: grok plugin validate plugins/mrscraper
+
+      - name: Install from the repository marketplace
+        run: |
+          grok plugin marketplace add "$GITHUB_WORKSPACE"
+          grok plugin install "mrscraper@$(basename "$GITHUB_WORKSPACE")" --trust
+
+      - name: Check loaded skills and MCP server
+        run: |
+          mkdir -p "$RUNNER_TEMP/project"
+          cd "$RUNNER_TEMP/project"
+          grok inspect --json > "$RUNNER_TEMP/inspect.json"
+          python3 - "$RUNNER_TEMP/inspect.json" <<'PY'
+          import json
+          import sys
+
+          inspect = json.load(open(sys.argv[1]))
+          skills = sorted(
+              skill["name"]
+              for skill in inspect["skills"]
+              if (skill.get("source") or {}).get("plugin_name") == "mrscraper"
+          )
+          expected = ["mrscraper", "mrscraper-fetch", "mrscraper-scrape", "mrscraper-serp"]
+          assert skills == expected, f"plugin skills {skills} != {expected}"
+          servers = [
+              (server["name"], server.get("target"))
+              for server in inspect["mcpServers"]
+              if (server.get("source") or {}).get("plugin_name") == "mrscraper"
+          ]
+          assert servers == [("mrscraper", "https://mcp.mrscraper.com/mcp")], servers
+          print("Loaded skills:", ", ".join(skills))
+          print("Loaded MCP server:", servers[0][0], servers[0][1])
+          PY

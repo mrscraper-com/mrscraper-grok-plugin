@@ -1,0 +1,21 @@
+{
+  "name": "mrscraper",
+  "version": "0.1.0",
+  "description": "Connect Grok Build to MrScraper for raw page fetching, managed extraction, Google discovery, and saved scraper workflows.",
+  "author": {
+    "name": "MrScraper",
+    "email": "support@mrscraper.com",
+    "url": "https://mrscraper.com"
+  },
+  "homepage": "https://docs.mrscraper.com/docs/getting-started/mcp-server",
+  "repository": "https://github.com/mrscraper-com/mrscraper-grok-plugin",
+  "license": "MIT",
+  "keywords": [
+    "mrscraper",
+    "mcp",
+    "web-scraping",
+    "data-extraction",
+    "search",
+    "research"
+  ]
+}
