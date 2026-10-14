@@ -54,7 +54,7 @@ jobs:
               for skill in inspect["skills"]
               if (skill.get("source") or {}).get("plugin_name") == "mrscraper"
           )
-          expected = ["mrscraper", "mrscraper-fetch", "mrscraper-scrape", "mrscraper-serp"]
+          expected = ["mrscraper", "mrscraper-fetch", "mrscraper-serp"]
           assert skills == expected, f"plugin skills {skills} != {expected}"
           servers = [
               (server["name"], server.get("target"))
