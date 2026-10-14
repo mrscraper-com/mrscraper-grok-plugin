@@ -1,7 +1,7 @@
 {
   "name": "mrscraper",
-  "version": "0.1.0",
-  "description": "Connect Grok Build to MrScraper for raw page fetching, managed extraction, Google discovery, and saved scraper workflows.",
+  "version": "0.2.0",
+  "description": "Connect Grok Build to MrScraper to retrieve web pages as HTML, Markdown, or screenshots, discover pages through Google, and check account usage.",
   "author": {
     "name": "MrScraper",
     "email": "support@mrscraper.com",

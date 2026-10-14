@@ -23,8 +23,8 @@ xAI Official marketplace listing.
 
 - [ ] Confirm the GitHub validation workflow passes.
 - [ ] Install the plugin from the public repository in a clean Grok Build
-      profile, complete OAuth from `/mcps`, and confirm all seven MCP tools
-      load.
+      profile, complete OAuth from `/mcps`, and confirm the `scraperAPI`,
+      `webSearch`, and `status` tools load.
 - [ ] Run the smoke-test prompt below.
 - [ ] Create the matching Git tag (`grok plugin tag plugins/mrscraper --push`)
       and a GitHub release.
@@ -34,7 +34,7 @@ xAI Official marketplace listing.
 | Field | Value |
 | --- | --- |
 | Catalog name | `mrscraper` |
-| Catalog description | MrScraper web scraping and structured data extraction (MCP Server + Skills). Fetch raw page HTML through MrScraper's Web Unblocker, run managed AI extraction or site mapping, discover pages through Google search, rerun saved scrapers, and inspect stored results and account usage. Sign in with your MrScraper account through OAuth on first connection; no API key to paste. |
+| Catalog description | MrScraper web scraping for Grok Build (MCP Server + Skills). Retrieve public pages as HTML, Markdown, or screenshots through MrScraper's Scraper API, discover pages through Google search, and check account usage. Sign in with your MrScraper account through OAuth on first connection; no API key to paste. |
 | Category | `development` |
 | Repository | `https://github.com/mrscraper-com/mrscraper-grok-plugin` |
 | Plugin path | `plugins/mrscraper` |
@@ -48,10 +48,10 @@ xAI Official marketplace listing.
 | Authentication | OAuth 2.1 with dynamic client registration |
 | License | MIT |
 
-The hosted service receives target URLs and tool inputs, including extraction
-instructions. Results are returned to Grok for the user's requested task. The
-OAuth connection requests `scrape:read`, `scrape:write`, `account:read`, and
-`offline_access`. The plugin contains no static credentials, hooks, or scripts.
+The hosted service receives target URLs and tool inputs, including search
+queries. Results are returned to Grok for the user's requested task. The OAuth
+connection requests `scrape:read`, `account:read`, and `offline_access`. The
+plugin contains no static credentials, hooks, or scripts.
 
 Smoke-test prompt:
 
