@@ -46,9 +46,10 @@ start the MCP server of a plugin you have not trusted.
 
 Start `grok`, open `/mcps`, select `mrscraper`, and press `i`. Grok Build opens
 the MrScraper consent page in your browser; sign in and approve access. Grok
-Build registers its own OAuth client and requests the `scrape:read` and
-`account:read` scopes advertised by the server, plus `offline_access` so it can
-refresh the token. Never paste OAuth tokens or API keys into chat.
+Build registers its own OAuth client and requests the `scrape:read`,
+`scrape:write`, and `account:read` scopes advertised by the server, plus
+`offline_access` so it can refresh the token. Never paste OAuth tokens or API
+keys into chat.
 
 Until you sign in, `grok mcp doctor mrscraper` reports that the handshake
 failed with `Auth required`. Run it again after sign-in to confirm the
