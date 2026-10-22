@@ -50,8 +50,8 @@ xAI Official marketplace listing.
 
 The hosted service receives target URLs and tool inputs, including search
 queries. Results are returned to Grok for the user's requested task. The OAuth
-connection requests `scrape:read`, `account:read`, and `offline_access`. The
-plugin contains no static credentials, hooks, or scripts.
+connection requests `scrape:read`, `scrape:write`, `account:read`, and
+`offline_access`. The plugin contains no static credentials, hooks, or scripts.
 
 Smoke-test prompt:
 
