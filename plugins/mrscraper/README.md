@@ -1,8 +1,8 @@
 # MrScraper
 
 This Grok Build plugin connects to the hosted MrScraper MCP server and adds
-focused skills for raw page fetching, managed structured extraction, Google
-discovery, saved scraper reruns, stored results, and account usage.
+focused skills for raw page fetching, managed structured extraction, web
+search, saved scraper reruns, stored results, and account usage.
 
 When a public URL is known, fetch is the normal first content-acquisition step.
 It preserves the page response so Grok can inspect every available detail,

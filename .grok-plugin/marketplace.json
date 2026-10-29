@@ -1,6 +1,6 @@
 {
   "name": "mrscraper-grok",
-  "description": "Retrieve and preserve web pages, discover sources through Google, and check MrScraper account usage from Grok Build.",
+  "description": "Retrieve and preserve web pages, discover sources through web search, and check MrScraper account usage from Grok Build.",
   "owner": {
     "name": "MrScraper",
     "email": "support@mrscraper.com"
@@ -9,7 +9,7 @@
     {
       "name": "mrscraper",
       "source": "./plugins/mrscraper",
-      "description": "Connect Grok Build to MrScraper to retrieve web pages as HTML, Markdown, or screenshots, discover pages through Google, and check account usage.",
+      "description": "Connect Grok Build to MrScraper to retrieve web pages as HTML, Markdown, or screenshots, discover pages through web search, and check account usage.",
       "category": "development",
       "author": {
         "name": "MrScraper"

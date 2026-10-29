@@ -3,6 +3,13 @@
 All notable changes to the MrScraper Grok Build plugin are documented here. The
 project follows [Semantic Versioning](https://semver.org/).
 
+## 0.2.2 - 2026-10-29
+
+- Reworded search as web search in the plugin and
+  marketplace descriptions, READMEs, publishing notes, and skills.
+  The `webSearch` tool is unchanged. The skills now differ from the MrScraper
+  Claude plugin 0.2.2 only in this wording.
+
 ## 0.2.1 - 2026-10-22
 
 - Updated the `mrscraper` skill and the docs for the hosted server's three

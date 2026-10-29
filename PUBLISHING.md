@@ -34,7 +34,7 @@ xAI Official marketplace listing.
 | Field | Value |
 | --- | --- |
 | Catalog name | `mrscraper` |
-| Catalog description | MrScraper web scraping for Grok Build (MCP Server + Skills). Retrieve public pages as HTML, Markdown, or screenshots through MrScraper's Scraper API, discover pages through Google search, and check account usage. Sign in with your MrScraper account through OAuth on first connection; no API key to paste. |
+| Catalog description | MrScraper web scraping for Grok Build (MCP Server + Skills). Retrieve public pages as HTML, Markdown, or screenshots through MrScraper's Scraper API, discover pages through web search, and check account usage. Sign in with your MrScraper account through OAuth on first connection; no API key to paste. |
 | Category | `development` |
 | Repository | `https://github.com/mrscraper-com/mrscraper-grok-plugin` |
 | Plugin path | `plugins/mrscraper` |
