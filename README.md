@@ -1,8 +1,8 @@
 # MrScraper for Grok Build
 
 MrScraper connects [Grok Build](https://x.ai/build) to a hosted MCP server for
-retrieving public web pages as HTML, Markdown, or screenshots, Google
-discovery, and account usage. The plugin also includes three focused skills
+retrieving public web pages as HTML, Markdown, or screenshots, web
+search, and account usage. The plugin also includes three focused skills
 that help Grok choose the right workflow and preserve raw page content.
 
 ## What this plugin adds
@@ -67,7 +67,7 @@ The connection exposes these MCP tools, shown in Grok Build as
 | Tool | Purpose |
 | --- | --- |
 | `scraperAPI` | Retrieve a known page as HTML, Markdown, a screenshot, or a combination. |
-| `webSearch` | Discover public pages through Google. |
+| `webSearch` | Discover public pages through web search. |
 | `status` | Inspect subscription status, token usage, and remaining tokens. |
 
 ## Retrieve-first routing
