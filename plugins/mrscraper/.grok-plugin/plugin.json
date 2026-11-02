@@ -1,6 +1,6 @@
 {
   "name": "mrscraper",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Connect Grok Build to MrScraper to retrieve web pages as HTML, Markdown, or screenshots, discover pages through web search, and check account usage.",
   "author": {
     "name": "MrScraper",
