@@ -16,10 +16,9 @@ project follows [Semantic Versioning](https://semver.org/).
 - Updated the READMEs and publishing notes for the seven tools. The plugin
   README no longer describes the removed `fetch` and `scrape` tools, saved
   scraper reruns, or stored results.
-- The hosted server now uses two OAuth scopes: `scraper:read` for the six
-  scraping and search tools and `account:read` for `status`. It no longer uses
-  `scrape:read` or `scrape:write`; connections authorized with them must sign
-  in again so Grok Build requests `scraper:read`.
+- The hosted server now uses two OAuth scopes: `scrape:read` for the six
+  scraping and search tools and `account:read` for `status`. Connections that
+  already hold `scrape:read` keep working; `scrape:write` is no longer needed.
 - Skills are identical to the MrScraper Claude 0.4.0, Cursor 0.5.0,
   Antigravity 0.4.0, and OpenCode 0.5.0 plugins.
 
