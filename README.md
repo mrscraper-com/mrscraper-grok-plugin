@@ -46,10 +46,9 @@ start the MCP server of a plugin you have not trusted.
 
 Start `grok`, open `/mcps`, select `mrscraper`, and press `i`. Grok Build opens
 the MrScraper consent page in your browser; sign in and approve access. Grok
-Build registers its own OAuth client and requests the `scrape:read`,
-`scrape:write`, and `account:read` scopes advertised by the server, plus
-`offline_access` so it can refresh the token. Never paste OAuth tokens or API
-keys into chat.
+Build registers its own OAuth client and requests the `scraper:read` and
+`account:read` scopes advertised by the server, plus `offline_access` so it
+can refresh the token. Never paste OAuth tokens or API keys into chat.
 
 Until you sign in, `grok mcp doctor mrscraper` reports that the handshake
 failed with `Auth required`. Run it again after sign-in to confirm the
@@ -58,24 +57,28 @@ connection.
 ## Try it
 
 ```text
-Fetch https://www.scrapethissite.com/pages/simple/ and summarize the page.
+Fetch https://www.scrapethissite.com and summarize the page.
 ```
 
 The connection exposes these MCP tools, shown in Grok Build as
 `mrscraper__<tool>`:
 
-| Tool | Purpose |
+| Tool | Description |
 | --- | --- |
-| `scraperAPI` | Retrieve a known page as HTML, Markdown, a screenshot, or a combination. |
-| `webSearch` | Discover public pages through web search. |
-| `status` | Inspect subscription status, token usage, and remaining tokens. |
+| `status` | Return the raw account status API response without summarizing, redacting body fields, or adding calculated fields. |
+| `scrapeHtml` | Retrieve the raw HTML of a page. Browser rendering is optional. |
+| `scrapeMarkdown` | Retrieve a page as Markdown. Including HTML also enables browser rendering and returns both outputs as JSON. |
+| `getScreenshot` | Capture a base64 screenshot of the full page or top viewport. Browser rendering is always enabled. |
+| `scrapeBrand` | Extract a website's colors, typography, logos, and social links as JSON. |
+| `scrapeJson` | Extract structured JSON from a page using a natural-language prompt. Append Json Schema: and a JSON schema to shape the output. |
+| `webSearch` | Search the web and return ranked results with titles, URLs, descriptions, and sources. |
 
 ## Retrieve-first routing
 
 When a public URL is already known, the skills direct Grok to retrieve it with
-`scraperAPI` first and treat the raw response as the source of truth. Grok can
-read, summarize, compare, or derive structured output locally without losing
-details.
+`scrapeMarkdown` or `scrapeHtml` first and treat the raw response as the source
+of truth. Grok can read, summarize, compare, or derive structured output
+locally without losing details.
 
 For roughly 100 known pages that share a layout, Grok can retrieve pages
 concurrently, retain every raw response, and apply one reusable local

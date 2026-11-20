@@ -23,8 +23,9 @@ xAI Official marketplace listing.
 
 - [ ] Confirm the GitHub validation workflow passes.
 - [ ] Install the plugin from the public repository in a clean Grok Build
-      profile, complete OAuth from `/mcps`, and confirm the `scraperAPI`,
-      `webSearch`, and `status` tools load.
+      profile, complete OAuth from `/mcps`, and confirm the `status`,
+      `scrapeHtml`, `scrapeMarkdown`, `getScreenshot`, `scrapeBrand`,
+      `scrapeJson`, and `webSearch` tools load.
 - [ ] Run the smoke-test prompt below.
 - [ ] Create the matching Git tag (`grok plugin tag plugins/mrscraper --push`)
       and a GitHub release.
@@ -50,13 +51,14 @@ xAI Official marketplace listing.
 
 The hosted service receives target URLs and tool inputs, including search
 queries. Results are returned to Grok for the user's requested task. The OAuth
-connection requests `scrape:read`, `scrape:write`, `account:read`, and
-`offline_access`. The plugin contains no static credentials, hooks, or scripts.
+connection requests `scraper:read` (the six scraping and search tools),
+`account:read` (`status`), and `offline_access`. The plugin contains no static
+credentials, hooks, or scripts.
 
 Smoke-test prompt:
 
 ```text
-Fetch https://www.scrapethissite.com/pages/simple/ and summarize the page.
+Fetch https://www.scrapethissite.com and summarize the page.
 ```
 
 ## Submit to xAI

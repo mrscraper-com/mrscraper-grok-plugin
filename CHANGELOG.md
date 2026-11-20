@@ -3,6 +3,26 @@
 All notable changes to the MrScraper Grok Build plugin are documented here. The
 project follows [Semantic Versioning](https://semver.org/).
 
+## 0.4.0 - 2026-11-20
+
+- Rewrote the skills for MrScraper MCP server 0.5.0, which follows the
+  MrScraper Integrations Standard and has seven tools: `status`, `scrapeHtml`,
+  `scrapeMarkdown`, `getScreenshot`, `scrapeBrand`, `scrapeJson`, and
+  `webSearch`. `scraperAPI` is gone; use `scrapeHtml`, `scrapeMarkdown`, or
+  `getScreenshot`, and `scrapeBrand` or `scrapeJson` for brand data and JSON
+  extraction. `webSearch` now takes `query`, `country`, and `numResults`
+  instead of `url`, `region`, `num_results`, and `timeout`, and all tool
+  inputs are camelCase.
+- Updated the READMEs and publishing notes for the seven tools. The plugin
+  README no longer describes the removed `fetch` and `scrape` tools, saved
+  scraper reruns, or stored results.
+- The hosted server now uses two OAuth scopes: `scraper:read` for the six
+  scraping and search tools and `account:read` for `status`. It no longer uses
+  `scrape:read` or `scrape:write`; connections authorized with them must sign
+  in again so Grok Build requests `scraper:read`.
+- Skills are identical to the MrScraper Claude 0.4.0, Cursor 0.5.0,
+  Antigravity 0.4.0, and OpenCode 0.5.0 plugins.
+
 ## 0.3.0 - 2026-11-02
 
 - Updated the `mrscraper-serp` skill for MrScraper MCP server 0.3.0, which
